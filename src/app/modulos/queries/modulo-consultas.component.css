@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tableColor {
+    background-color: #282846;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .search-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .search-field {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+  }
+  
+  mat-card-title {
+    text-align: center;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-list {
+    background-color: white;
+    color: black;
+    max-height: 150px;
+    overflow: auto;
+  }
+  
+  .mat-list-item {
+    padding: 5px;
+  }
+
+  .btn-exportar {
+    background-color: #D4A037;
+    color: black;
+    border-radius: 20px 20px;
+  }
+  
+  .btn-anular {
+    background-color: #ffffff;
+    color: red;
+    border-radius: 20px 20px;
+  }
+  

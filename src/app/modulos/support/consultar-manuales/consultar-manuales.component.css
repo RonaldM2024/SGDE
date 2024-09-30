@@ -1,0 +1,97 @@
+.container {
+  margin-top: 20px;
+}
+
+.section-title {
+  color: #282846;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-md-6 {
+  flex: 0 0 48%;
+  max-width: 48%;
+}
+
+.card {
+  margin-bottom: 20px;
+  background-color: #282846;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.manual-card {
+  padding: 15px;
+}
+
+.btn-primary {
+  background-color: #3F51B5;
+  border-color: #3F51B5;
+}
+
+.btn-secondary {
+  background-color: #FF4081;
+  border-color: #FF4081;
+  color: white;
+}
+
+.close-button {
+  margin-top: 15px;
+}
+
+iframe {
+  border: none;
+  margin-top: 15px;
+}
+
+button {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .card {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.5em;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  iframe {
+    height: 300px;
+  }
+}

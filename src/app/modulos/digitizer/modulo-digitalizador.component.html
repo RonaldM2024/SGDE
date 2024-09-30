@@ -1,0 +1,179 @@
+<div class="container mt-3">
+    <div class="row">
+        <div *ngIf="isDesktop && statusImage === false" class="col-lg-5">
+            <div class="card mb-3">
+                <div class="card-body text-center">
+                    <i class="bi bi-camera" style="font-size: 145px;" (click)="openCameraDialog('300ms','300ms')"></i>
+                    <h6>Tomar fotografía</h6>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="bi bi-image" style="font-size: 145px; cursor:pointer;" (click)="triggerFileInput()"></i>
+                    <h6>Subir Imagen</h6>
+                    <input type="file" #fileInput accept="image/*" (change)="onFileSelected($event)" style="display: none;">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isDesktop" [ngClass]="{'col-lg-5': isDesktop, 'd-none': !statusImage}" >
+            <div class="card p-3">
+                <div class="card-body">
+                    <div class="text-center"> 
+                        <h5 [ngClass]="isDesktop ? 'mt-4' : 'mt-1'" >Documento Cargado</h5>
+                    </div>
+                    <img id="imageDoc" [src]="newFile" width="100%" height="100%">
+                            <div class="spinner-overlay" *ngIf="showSpinner">
+                                <div class="spinner-message1">Analizando documento</div>
+                                <div class="spinner mt-3 mb-3">
+                                    <i class="fa fa-spinner fa-spin"></i> 
+                                </div>
+                                <div class="spinner-message">Extrayendo Información del egresado...</div>
+                            </div>
+                    <div class="row justify-content-center mt-2">
+                        <div class="col-md-8">
+                            <div class="row justify-content-center">
+                                <div class="col-md-2 d-flex align-items-center">
+                                    <button style="background-color: white; border: 0px ; border-radius: 15px 15px; padding: 5px 14px;"><i class="fa-solid fa-arrows-rotate" (click)="changedStatus()"></i></button>
+                                </div>  
+                                <div class="col-md-2 d-flex align-items-center">
+                                    <button style="background-color: white; border: 0px ; border-radius: 15px 15px; padding: 5px 14px;" (click)="openDialogPicture('300ms','300ms')"><img width="24" height="24" src="https://img.icons8.com/pulsar-line/96/edit-image.png" alt="edit-image"/></button>
+                                </div>                                       
+                                <div class="col-md-6 mx-2">
+                                    <button class="btn p-1" style="background-color: #D4A037;" (click)="onAnalyzeClick()"><small style="font-weight: 500;">Analizar Documento</small></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!isDesktop" [ngClass]="{'col-5': isDesktop, 'd-none': !statusImage}">
+            <div class="card p-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row justify-content-center">
+                                <div class="col-4">
+                                    <img id="imageDoc" [src]="newFile" width="100%" height="100%">
+                                    <div class="spinner-overlay" *ngIf="showSpinner">
+                                        <div class="spinner">
+                                            <i class="fa fa-spinner fa-spin"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="text-center"> 
+                                        <p class="mt-1" style="font-size: 0.90rem;">Documento Cargado</p>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-4 d-flex align-items-center">
+                                            <button style="background-color: white; border: 0px ; border-radius: 15px 15px; padding: 5px 14px;"><i class="fa-solid fa-arrows-rotate" (click)="changedStatus()"></i></button>
+                                        </div>
+                                        <div class="col-4 d-flex align-items-center">
+                                            <button style="background-color: white; border: 0px ; border-radius: 15px 15px; padding: 5px 14px;" (click)="openDialogPicture('300ms','300ms')"><img width="24" height="24" src="https://img.icons8.com/pulsar-line/96/edit-image.png" alt="edit-image"/></button>
+                                        </div>                                    
+                                        <div class="col-4 d-flex align-items-center">
+                                            <button class="btn mx-2" style="background-color: #D4A037;" (click)="onAnalyzeClick()"> <i class="fa-brands fa-searchengin"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="!isDesktop && statusImage === false">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body text-center p-1">
+                            <i class="bi bi-camera" style="font-size: 60px;" (click)="openCameraDialog('300ms','300ms')"></i>
+                            <p style="font-size: 0.90rem;"> <b>Tomar fotografía</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div  class="card">
+                        <div class="card-body text-center p-1">
+                            <i class="bi bi-image" style="font-size: 60px; cursor:pointer;" (click)="triggerFileInput()"></i>
+                            <p style="font-size: 0.90rem;"> <b>Subir Imagen</b></p>
+                            <input type="file" #fileInput accept="image/*" (change)="onFileSelected($event)" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="isDesktop ? 'col-lg-5' : 'col-12 mt-3'">
+            <div class="card p-3">
+                <div class="card-body">
+                    <div class="text-center"> 
+                        <h5 [ngClass]="isDesktop ? 'mt-4' : 'mt-1'" >Información del egresado</h5>
+                    </div>
+                    <form [ngClass]="isDesktop ? 'mt-4' : 'mt-3'" [formGroup]="studentForm">
+                        <div [ngClass]="isDesktop ? 'form-group mb-4' : 'form-group mt-2'">
+                            <label for="exampleInputEmail1"><b>CI:</b></label>
+                            <input type="text" class="form-control mt-2" id="exampleInputEmail1" formControlName="ci" [ngClass]="{'is-invalid': studentForm.get('ci')?.invalid && studentForm.get('ci')?.touched}" autocomplete="new-email">
+                        </div>
+                        <div [ngClass]="isDesktop ? 'form-group mb-4' : 'form-group mt-2'">
+                            <label for="exampleInputName"><b>Nombres:</b></label>
+                            <mat-chip-listbox *ngIf="statusImage">
+                              <mat-chip-option *ngFor="let name of detectedNames" 
+                                        (click)="selectName(name)" 
+                                        [selected]="selectedNames.includes(name)"
+                                        [ngClass]="{'selected-chip': selectedNames.includes(name)}">
+                                {{ name }}
+                              </mat-chip-option>
+                            </mat-chip-listbox>
+                            <input type="text" class="form-control mt-2" id="exampleInputName" formControlName="nombres" [value]="selectedNames.join(' ')" [ngClass]="{'is-invalid': studentForm.get('nombres')?.invalid && studentForm.get('nombres')?.touched}" autocomplete="new-name" (input)="toUpperCase('nombres')">
+                        </div>
+                        <div [ngClass]="isDesktop ? 'form-group mb-4' : 'form-group mt-2'">
+                            <label for="exampleInputLastName"><b>Apellidos:</b></label>
+                            <mat-chip-listbox *ngIf="statusImage">
+                              <mat-chip-option *ngFor="let surname of detectedSurnames" 
+                                        (click)="selectLastName(surname)" 
+                                        [selected]="selectedLastNames.includes(surname)"
+                                        [ngClass]="{'selected-chip': selectedLastNames.includes(surname)}">
+                                {{ surname }}
+                              </mat-chip-option>
+                            </mat-chip-listbox>
+                            <input type="text" class="form-control mt-2" id="exampleInputLastName" [ngClass]="{'is-invalid': studentForm.get('apellidos')?.invalid && studentForm.get('apellidos')?.touched}" formControlName="apellidos" [value]="selectedLastNames.join(' ')" autocomplete="new-lastname" (input)="toUpperCase('apellidos')">
+                        </div>
+                        <div [ngClass]="isDesktop ? 'form-group mb-4' : 'form-group mt-2 mb-3'">
+                            <label for="exampleInputDocument"><b>Tipo de documento:</b></label>
+                            <select class="form-select mt-1 small-text" id="exampleInputDocument" [(ngModel)]="newTipoDocumento" formControlName="tipoDocumento" [ngClass]="{'is-invalid': studentForm.get('tipoDocumento')?.invalid && studentForm.get('tipoDocumento')?.touched}" aria-label="Default select example">
+                              <option selected>Seleccionar Documento</option>
+                              <option *ngFor="let tipo of tiposDocumentos" [value]="tipo">{{ tipo }}</option>
+                            </select>
+                          </div>
+                          
+                        <div *ngIf="isDesktop && btnEnabled && !loadingSave" [ngClass]="{ 'form-group mb-4': isDesktop, 'd-none': !statusImage }">
+                            <button class="btn w-100" style="background-color: #D4A037; color: black; font-weight: 500;" (click)="openConfirmationDialog()">Guardar</button>
+                        </div>
+                        <div *ngIf="isDesktop  && btnEnabled && !loadingSave" [ngClass]="{ 'form-group mb-4': isDesktop, 'd-none': !statusImage }">
+                            <button class="btn w-100" style="background-color: white; color: #FF3131; font-weight: 500;" (click)="changedStatus()">Cancelar</button>
+                        </div>
+                        <div *ngIf="loadingSave" disabled [ngClass]="{ 'form-group mb-4': isDesktop, 'd-none': !statusImage }">
+                            <button class="btn w-100" style="background-color: #D4A037; color: black; font-weight: 500;">
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Cargando...
+                            </button>
+                        </div>
+                        <div *ngIf="!isDesktop && statusImage" class="form-group mt-2 mb-3">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button class="btn w-100" style="background-color: #D4A037; color: black; font-weight: 500;" (click)="openConfirmationDialog()" [disabled]="loadingSave">Guardar</button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn w-100" style="background-color: white; color: #FF3131; font-weight: 500;" (click)="changedStatus()">Cancelar</button>
+                                </div>
+                            </div>
+                        </div>                        
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

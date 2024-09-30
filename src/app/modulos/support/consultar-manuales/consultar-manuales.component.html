@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h3 class="section-title">Manuales Disponibles</h3>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let manual of manuales">
+      <div class="card mt-3 manual-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ manual.titulo }}</h5>
+          <p class="card-text">Fecha de Registro: {{ manual.fechaRegistro | date }}</p>
+          <button (click)="selectManual(manual)" class="btn btn-primary">Ver manual</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="selectedManual">
+    <div class="col-12">
+      <div class="card mt-3 manual-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ selectedManual.titulo }}</h5>
+          <p class="card-text">Fecha de Registro: {{ selectedManual.fechaRegistro | date }}</p>
+          <a [href]="selectedManual.url" target="_blank">Enlace del documento</a>
+          <iframe [src]="safeUrl" width="100%" height="500px"></iframe>
+          <button (click)="clearSelectedManual()" class="btn btn-secondary close-button mt-3">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<div class="page-wrapper chiller-theme toggled" [ngClass]="{'toggled': sidebarToggled}">
+    <a id="show-sidebar"  class="btn btn-sm btn-dark" *ngIf="!sidebarToggled && isDesktop" (click)="toggleSidebar()">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper" *ngIf="isDesktop">
+      <div class="sidebar-content">
+        <div class="sidebar-brand">
+          <div id="close-sidebar" (click)="closeToggleSidebar()">
+            <i class="fas fa-times" ></i>
+          </div>
+        </div>
+        <div class="sidebar-header">
+          <div class="user-info" style="margin-top: 10px;">
+            <h5 style="color: gray; font-weight: normal; margin-bottom: 0px;">Bienvenid@</h5>
+            <h2 style="margin-top: 0px;"><strong>{{name}} {{lastName}}</strong></h2>
+          </div>
+        </div>
+        <div class="module mt-4">
+            <h4 style="color: #D4A037; font-weight: normal;"> {{cargo}}</h4>
+        </div>
+        <div class="sidebar-menu mt-3">
+
+          <ul>
+            <li class="mt-2">
+              <a href="sgda/">
+                <i class="fa-solid fa-house"></i>
+                <span>Inicio</span>
+              </a>
+            </li>
+            <li *ngIf="isDigitalizador">
+              <a href="sgda/modulo-digitalizador">
+                <i class="fa-solid fa-file-import cursor-pointer"></i>
+                <span>Modulo Digitalizador</span>
+              </a>
+            </li>
+            <li *ngIf="isConsultor">
+                <a href="sgda/modulo-consultas">
+                  <i class="fa-solid fa-file-export cursor-pointer"></i>
+                  <span>Modulo Consultas</span>
+                </a>
+            </li>
+            <li *ngIf="isAdminUsers">
+              <a href="sgda/modulo-adm-usuarios" class="d-flex align-items-center">
+                <i class="fa-solid fa-user-cog cursor-pointer me-3 ms-1"></i>
+                <span>Modulo Administración Usuarios</span>
+              </a>
+            </li>
+            <li *ngIf="isAuditor">
+                <a href="sgda/modulo-auditoria">
+                  <i class="fa-solid fa-audio-description cursor-pointer"></i>
+                  <span>Modulo Auditoria</span>
+                </a>
+            </li>
+            <li *ngIf="isSoporte">
+                <a href="sgda/modulo-soporte">
+                  <i class="fa-solid fa-headset cursor-pointer"></i>
+                  <span>Modulo Soporte</span>
+                </a>
+            </li>
+            <li *ngIf="isLegal">
+                <a href="sgda/modulo-legal">
+                  <i class="fa-solid fa-scale-unbalanced-flip cursor-pointer"></i>
+                  <span>Modulo Legal</span>
+                </a>
+            </li>
+            <li>
+                <a href="sgda/consultar-manuales">
+                  <i class="fa-solid fa-circle-question"></i>
+                  <span>Soporte y ayuda</span>
+                </a>
+            </li>
+            <li>
+              <a href="sgda/consultar-contratos">
+                <i class="fa fa-legal"></i>
+                <span>Aspectos Legales</span>
+              </a>
+          </li>
+          <li>
+            <a class="pointer" (click)="logout()">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span>Cerrar sesión</span>
+            </a>
+          </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <main class="page-content">
+      <div style="background-color: #282846;">
+        <h1 style="color: white;"> SGDE </h1>
+      </div>
+      <div class="container-fluid"> 
+        <router-outlet></router-outlet>
+      </div>
+      <nav class="mobile-footer" *ngIf="!isDesktop">
+        <a routerLink="/sgda/">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <a *ngIf="isDigitalizador" routerLink="/sgda/modulo-digitalizador">
+          <i class="fa-solid fa-file-import cursor-pointer"></i>
+        </a>
+        <a *ngIf="isConsultor" routerLink="/sgda/modulo-consultas">
+          <i class="fa-solid fa-file-export cursor-pointer"></i>
+        </a>
+        <a *ngIf="isAdminUsers" routerLink="/sgda/modulo-adm-usuarios">
+          <i class="fa-solid fa-user-cog cursor-pointer"></i>
+        </a>
+        <a *ngIf="isAuditor" routerLink="/sgda/modulo-auditoria">
+          <i class="fa-solid fa-audio-description cursor-pointer"></i>
+        </a>
+        <a *ngIf="isSoporte" routerLink="/sgda/modulo-soporte">
+          <i class="fa-solid fa-headset cursor-pointer"></i>
+        </a>
+        <a *ngIf="isLegal" routerLink="/sgda/modulo-legal">
+          <i class="fa-solid fa-scale-unbalanced-flip cursor-pointer"></i>
+        </a>
+        <a routerLink="/sgda/consultar-manuales" >
+          <i class="fa-solid fa-circle-question cursor-pointer"></i>
+        </a>
+        <a routerLink="/sgda/consultar-contratos">
+          <i class="fa-solid fa-legal cursor-pointer"></i>
+        </a>
+        
+        <a (click)="logout()" >
+          <i class="fa-solid fa-arrow-right-from-bracket cursor-pointer"></i>
+        </a>
+      </nav>
+    </main>
+  </div>
+  

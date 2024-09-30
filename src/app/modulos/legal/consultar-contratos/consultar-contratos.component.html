@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h3 class="section-title">Aspectos Legales</h3>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-12">
+      <div *ngFor="let contrato of contratos" class="card mt-3 contrato-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ contrato.titulo }}</h5>
+          <p class="card-text">Fecha de Inicio: {{ contrato.fechaInicio | date }}</p>
+          <p class="card-text">Fecha Fin: {{ contrato.fechaFin | date }}</p>
+          <button (click)="selectContrato(contrato)" class="btn btn-primary">Ver contrato</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-6 col-12" *ngIf="selectedContrato">
+      <div class="card mt-3 contrato-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ selectedContrato.titulo }}</h5>
+          <p class="card-text"><strong>Fecha de Inicio:</strong> {{ selectedContrato.fechaInicio | date }}</p>
+          <p class="card-text"><strong>Fecha de Fin:</strong> {{ selectedContrato.fechaFin | date }}</p>
+          <p class="card-text"><strong>Partes Involucradas:</strong> {{ selectedContrato.partesInvolucradas.join(', ') }}</p>
+          <p class="card-text"><strong>Tipo de Contrato:</strong> {{ selectedContrato.tipoContrato.getValue() }}</p>
+          <h4>Contenido</h4>
+          <div class="contenido-contrato" [innerHTML]="formatContent(selectedContrato.contenido)"></div>
+          <button (click)="clearSelectedContrato()" class="btn btn-secondary close-button mt-3">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

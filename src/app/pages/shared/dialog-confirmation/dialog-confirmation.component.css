@@ -1,0 +1,24 @@
+.confirmation-dialog-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .mat-icon {
+    font-size: 48px;
+    color: red; /* Cambia el color a amarillo */
+  }
+  
+  .message-wrapper {
+    margin-bottom: 16px;
+  }
+  

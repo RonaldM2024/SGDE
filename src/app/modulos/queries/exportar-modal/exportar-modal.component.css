@@ -1,0 +1,51 @@
+.modal-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Asegura que las columnas se distribuyan correctamente */
+  }
+  
+  .info-section {
+    background-color: #282846;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-right: 10px; /* Reduced margin to allow fitting within the container */
+    flex: 1 1 30%; /* Flex-grow, flex-shrink, flex-basis to allow resizing */
+  }
+  
+  .info-section h5 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    background-color: #ffffff;
+    color: #34495e;
+    border-radius: 4px;
+  }
+  
+  .actions {
+    margin-top: 20px;
+  }
+  
+  .actions button {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
+  .document-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+  }
+  

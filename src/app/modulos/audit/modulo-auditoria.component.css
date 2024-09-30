@@ -1,0 +1,81 @@
+.container {
+  background-color: #282846;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.text-h2 {
+  color: #282846;
+}
+
+.navigation-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center; /* Centramos los botones */
+}
+
+.navigation-bar button {
+  color: #282846;
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  flex: 1 1 auto;
+  min-width: 100px; /* Ajusta según sea necesario */
+  text-align: center;
+}
+
+.navigation-bar button.selected {
+  color: white;
+  background-color: #ffa500;
+}
+
+.table-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: white;
+  color: #282846;
+}
+
+td {
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    padding: 10px;
+  }
+
+  .navigation-bar button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+}

@@ -1,0 +1,51 @@
+.home-container {
+  background-image: url('../../../assets/Fondo_de_pantalla_sistema.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: #282846;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    height: auto;
+    padding: 20px 15px;
+  }
+  .text-center {
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-container {
+    padding: 10px;
+  }
+  .text-center {
+    font-size: 1.5em;
+  }
+}
+
+.navigation-links {
+  margin-top: 20px;
+}
+
+.link-primary {
+  color: #3F51B5;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-secondary {
+  color: #3F51B5;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-primary:hover,
+.link-secondary:hover {
+  text-decoration: underline;
+}

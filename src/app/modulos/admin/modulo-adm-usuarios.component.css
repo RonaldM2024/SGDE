@@ -1,0 +1,105 @@
+.container {
+  background-color: #282846;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card {
+  background-color: #282846;
+  color: white;
+  border-radius: 10px;
+}
+
+.card-header {
+  background-color: white; /* Fondo blanco */
+  color: #282846; /* Texto de color #282846 */
+}
+
+.card-title-custom {
+  color: #282846;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.input-group-text {
+  background-color: #D4A037;
+  border: none;
+  color: black;
+}
+
+.form-control, .form-select {
+  border-radius: 5px;
+  border: none;
+}
+
+.form-check-input {
+  margin-right: 10px;
+}
+
+.btn-warning {
+  background-color: #D4A037;
+  border: none;
+  color: black;
+  border-radius: 5px;
+}
+
+.btn-danger {
+  border-radius: 5px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #282846;
+}
+
+.mat-raised-button {
+  border-radius: 5px;
+}
+
+.mat-card {
+  background-color: #282846 !important;
+}
+
+.mat-header-cell {
+  color: white;
+}
+
+.mat-cell {
+  color: white;
+}
+
+.mat-icon-button {
+  color: #D4A037 !important;
+}
+
+.input-group {
+  width: 220px;
+}
+
+.buscar-usuario {
+  margin-right: auto; /* Alinea a la izquierda */
+}
+
+.input-group .form-control {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.input-group .btn-outline-secondary {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.input-group .btn-outline-secondary i {
+  color: black;
+}
+
+.text-success {
+  color: #28a745 !important;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}

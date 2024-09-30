@@ -1,0 +1,49 @@
+.btn-group-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 4px; /* Ajusta el espacio entre los botones */
+}
+
+.btn-group-horizontal .fa-solid, .btn-group-horizontal .flip-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.close-button {
+  color: red;
+}
+
+.rotate-button, .save-button {
+  color: #007bff;
+}
+
+.video-camara, .img-capturada {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.card-header {
+  position: relative;
+}
+
+.card-header .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .video-camara, .img-capturada {
+    width: 100%;
+    height: auto;
+  }
+}

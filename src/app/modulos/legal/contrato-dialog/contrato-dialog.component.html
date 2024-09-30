@@ -1,0 +1,41 @@
+<h1 class="dialog-title">{{data.contrato ? 'Editar Contrato' : 'Nuevo Contrato'}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="contratoForm">
+    <div class="form-group">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" class="form-control" formControlName="titulo" required>
+      <div *ngIf="contratoForm.get('titulo')?.hasError('required')" class="error">El título es obligatorio</div>
+    </div>
+    <div class="form-group">
+      <label for="fechaInicio">Fecha de Inicio:</label>
+      <input type="date" id="fechaInicio" class="form-control" formControlName="fechaInicio" required>
+      <div *ngIf="contratoForm.get('fechaInicio')?.hasError('required')" class="error">La fecha de inicio es obligatoria</div>
+    </div>
+    <div class="form-group">
+      <label for="fechaFin">Fecha de Fin:</label>
+      <input type="date" id="fechaFin" class="form-control" formControlName="fechaFin" required>
+      <div *ngIf="contratoForm.get('fechaFin')?.hasError('required')" class="error">La fecha de fin es obligatoria</div>
+    </div>
+    <div class="form-group">
+      <label for="partesInvolucradas">Partes Involucradas:</label>
+      <input type="text" id="partesInvolucradas" class="form-control" formControlName="partesInvolucradas" required>
+      <div *ngIf="contratoForm.get('partesInvolucradas')?.hasError('required')" class="error">Las partes involucradas son obligatorias</div>
+    </div>
+    <div class="form-group">
+      <label for="tipoContrato">Tipo de Contrato:</label>
+      <select id="tipoContrato" class="form-control" formControlName="tipoContrato" required>
+        <option *ngFor="let tipo of tiposContratos" [value]="tipo">{{tipo}}</option>
+      </select>
+      <div *ngIf="contratoForm.get('tipoContrato')?.hasError('required')" class="error">El tipo de contrato es obligatorio</div>
+    </div>
+    <div class="form-group full-width">
+      <label for="contenido">Contenido:</label>
+      <textarea id="contenido" class="form-control" formControlName="contenido" required rows="10"></textarea>
+      <div *ngIf="contratoForm.get('contenido')?.hasError('required')" class="error">El contenido es obligatorio</div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions class="action-buttons">
+  <button mat-button (click)="onNoClick()" class="cancel-button">Cancelar</button>
+  <button mat-button (click)="saveContrato()" [disabled]="!contratoForm.valid" class="save-button" cdkFocusInitial>{{data.contrato ? 'Actualizar' : 'Guardar'}}</button>
+</div>

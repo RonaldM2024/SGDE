@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-4 col-md-3">
+            <img src="../../../../assets/logo_n.png" class="responsive-image" alt="Logo">
+        </div>
+        <div class="col-8 col-md-9 d-flex justify-content-end align-items-center text-end">
+            <h4 class="responsive-text" *ngIf="isDesktop">{{ headerText }}</h4>
+            <h6 class="responsive-text mt-2" *ngIf="!isDesktop">{{ headerText }}</h6>
+        </div>
+    </div>
+</div>
